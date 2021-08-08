@@ -6,6 +6,7 @@ on:
 
 jobs:
   prepare-release:
+    if: github.actor == 'tninomiya'
     runs-on: ubuntu-20.04
     steps:
       - 
@@ -20,6 +21,7 @@ jobs:
     outputs:
       release_tag: ${{ steps.time.outputs.time }}
   build-release:
+    if: github.actor == 'tninomiya'
     runs-on: ubuntu-20.04
     needs: [prepare-release]
     strategy:
